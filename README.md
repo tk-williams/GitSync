@@ -2,72 +2,6 @@
 
 This repository contains the codebase for the GitSync project. The intent of the project is to provide a system for automatically mirroring and backing up repositories from one Git hosting service to another. 
 
-The project is currently being hosted via Amazon EC2 instance running Ubuntu 20.04.2 LTS. 
-
-Currently Synced Repos:
-```
-ethereum/solidity
-ethereum/consensus-specs
-ethereum/go-ethereum
-ethereum/remix-project
-ethereum/EIPs
-ethereum/PM
-ethereum/js-ethereum-cryptography
-ethereum/annotated-spec
-ethereum/execution-spec-tests
-ethereum/staking-launchpad
-ethereum/consensus-spec-tests
-ethereum/execution-specs
-ethereum/execution-apis
-ethereum/tests
-ethereum/py-evm
-ethereum/devp2p
-ethereum/yellowpaper
-ethereum/distributed-validator-specs
-ethereum-cat-herders/EIPIP
-ethereum-cat-herders/PM
-ethereum-git-sync/GitSync
-ethereum-git-sync/github-issues-archive
-flashbots/mev-boost
-flashbots/mev-boost-relay
-status-im/status-desktop
-status-im/status-mobile
-MetaMask/core
-matter-labs/zksync
-matter-labs/zksync-era
-MyEtherWallet/MyEtherWallet
-MyCryptoHQ/MyCrypto
-ledgerwatch/erigon
-hyperledger/besu
-NethermindEth/nethermind
-ConsenSys/teku
-prysmaticlabs/prysm
-ChainSafe/lodestar
-sigp/lighthouse
-ethereum-optimism/optimism
-OffchainLabs/arbitrum
-OpenZeppelin/openzeppelin-contracts
-trufflesuite/truffle
-NomicFoundation/hardhat
-ethers-io/ethers.js/
-eth-brownie/brownie
-foundry-rs/foundry
-vyperlang/vyper
-```
-
-Current Hosts:
-```
-Gitea: https://gitea.com/ethereum-git-sync
-       https://gitea.com/tweth
-
-Bitbucket
-```
-
-Issues are hosted here:
-```
-github.com/ethereum-git-sync/github-issues-archive
-```
-
 ## Server Set-up
 
 ### SSH Config
@@ -84,28 +18,12 @@ Host github.com
 	PreferredAuthentications publickey
 	IdentitiesOnly yes
 	IdentityFile ~/.ssh/SSH_KEY
-
-Host gitea.com
-	User git
-	HostName gitea.com
-        PreferredAuthentications publickey
-        IdentitiesOnly yes
-	IdentityFile ~/.ssh/SSH_KEY
-
-Host bitbucket.org
-	User git
-	HostName bitbucket.org
-	PreferredAuthentications publickey
-	IdentitiesOnly yes
-	IdentityFile ~/.ssh/SSH_KEY
 ```
 If multiple users for the same host are needed, a Host block can be copied, with only the Host name and IdentityFile needing updated to represent an additional user and their SSH key. Scripts should be updated to reflect this change as well (`git@gitea.com, git@gitea.com-2, etc.`).
 
 SSH_KEY is to be replaced with your own private keys that corrispond to public keys attached to the GitHub/Gitea/etc accounts being used in the syncing scripts. A public key can be added at...
 
 GitHub: https://github.com/settings/keys
-
-Gitea: https://gitea.com/user/settings/keys
 
 ### GitHub Credentials
 
